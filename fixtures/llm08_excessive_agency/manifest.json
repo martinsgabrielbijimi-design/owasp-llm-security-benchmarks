@@ -1,0 +1,17 @@
+{
+  "fixture_id": "FIX-LLM08-001",
+  "name": "Excessive Agency in Autonomous Tool Dispatcher",
+  "cwe": "CWE-269: Improper Privilege Management",
+  "owasp_llm": "LLM08: Excessive Agency",
+  "severity": "CRITICAL",
+  "vulnerability_pattern": "Unchecked dispatching of OS commands and database mutations via LLM agent function calls.",
+  "ground_truth_remediation": [
+    "Drop arbitrary shell invocation tools completely.",
+    "Enforce tool whitelisting and RBAC validation at dispatcher boundary.",
+    "Implement human-in-the-loop confirmation tickets for destructive operations."
+  ],
+  "deterministic_verification": {
+    "test_suite": "fixtures/llm08_excessive_agency/test_agency.py",
+    "expected_tests_passed": 3
+  }
+}

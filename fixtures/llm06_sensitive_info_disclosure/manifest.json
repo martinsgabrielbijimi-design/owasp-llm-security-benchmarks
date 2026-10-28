@@ -1,0 +1,17 @@
+{
+  "fixture_id": "FIX-LLM06-001",
+  "name": "System Prompt and Credential Exfiltration via Context Extraction",
+  "cwe": "CWE-200: Exposure of Sensitive Information to an Unauthorized Actor",
+  "owasp_llm": "LLM06: Sensitive Information Disclosure",
+  "severity": "HIGH",
+  "vulnerability_pattern": "Unfiltered reflection of system prompts and internal API tokens during context manipulation attacks.",
+  "ground_truth_remediation": [
+    "Implement regex token scrubbing on all outgoing response payloads.",
+    "Decouple system instruction state from conversational completions.",
+    "Add prompt injection guard checks targeting extraction commands."
+  ],
+  "deterministic_verification": {
+    "test_suite": "fixtures/llm06_sensitive_info_disclosure/test_disclosure.py",
+    "expected_tests_passed": 2
+  }
+}
